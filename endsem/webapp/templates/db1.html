@@ -1,0 +1,28 @@
+<html>
+  <form action="/webapp/db2/" method="post">{%csrf_token%}
+    {{form.as_p}}
+    <input type="submit" />
+  </form>
+  <br />
+  {%for obj in objs%} {{obj.name}}
+  <br />
+  {{obj.email}}
+  <hr />
+  {%endfor%}
+  <form action="/webapp/dbget/" method="post">{%csrf_token%}
+    {{formget.as_p}}
+    <input type="submit">
+  </form>
+  <form action="/webapp/dbfilter/" method="post">{%csrf_token%}
+    {{formfilter.as_p}}
+    <input type="submit">
+  </form>
+  <form action="/webapp/dbupdate/" method="post">{%csrf_token%}
+    {{formupdate.as_p}}
+    <input type="submit">
+  </form>
+  <form action="/webapp/dbdelete/" method="post">{%csrf_token%}
+    {{formdelete.as_p}}
+    <input type="submit">
+  </form>
+</html>

@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <style></style>
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.js"
+      integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("button").click(function () {
+          var bgcol = $("#bgc").children("option:selected").val();
+          var font = $("#font").children("option:selected").val();
+          var fs = $("#fs").val();
+          var greet = $("#greet").val();
+          var border = $('input[type="radio"]:checked');
+          console.log(border[0].value);
+          border = border[0].value;
+          console.log(bgcol, font, fs, greet, border);
+
+          var imgc = $('input[type="checkbox"]:checked');
+          if (imgc.length === 0) {
+            $("img").css("display", "none");
+          } else {
+            $("img").css("display", "block");
+          }
+
+          $("#poster").css("background-color", bgcol);
+          $("#poster").css("font-size", fs + "px");
+          $("#poster").css("font-family", font);
+          $("#poster").css("border", "2px " + border + " black");
+          $("#poster #greet").html(greet);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <label for="bgc">choose a bg color</label>
+      <select id="bgc" name="bgc">
+        <option value="yellow" selected>Yellow</option>
+        <option value="green">Green</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="pink">Pink</option>
+      </select>
+      <br />
+
+      <label for="font">Choose a font:</label>
+      <select id="font" name="font">
+        <option value="arial" selected>Arial</option>
+        <option value="cursive">Cursive</option>
+        <option value="monospace">Monospace</option>
+      </select>
+      <br />
+
+      <label>enter font size</label>
+      <input type="text" name="fs" id="fs" />
+      <br />
+
+      <label>Choose a border style:</label><br />
+      <input type="radio" id="none" name="bod_style" value="none" />
+      <label for="none">None</label><br />
+      <input type="radio" id="double" name="bod_style" value="double" />
+      <label for="double">Double</label><br />
+      <input type="radio" id="solid" name="bod_style" value="solid" />
+      <label for="solid">Solid</label><br />
+
+      <input type="checkbox" id="chk" />
+      <label>add pic</label><br />
+
+      <label>enter greeting</label><br />
+      <input type="text" name="greet" id="greet" /><br />
+
+      <button>update</button>
+
+      <br /><br />
+
+      <div id="poster">
+        <div id="greet">Default text here!</div>
+        <img
+          src="https://manipal.edu/content/dam/manipal/mu/imagesnew/Campuslife/1440%20x%20800px%20.jpg"
+          width="200"
+          height="200"
+        />
+      </div>
+    </div>
+  </body>
+</html>

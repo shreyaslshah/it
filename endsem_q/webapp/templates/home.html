@@ -1,0 +1,15 @@
+<html>
+  <form action="/webapp/submitcr/" method="post">{%csrf_token%}
+    {{crform.as_p}}
+    <input type="submit" />
+  </form>
+  <form action="/webapp/submitvote/" method="post">{%csrf_token%}
+    {{voteform.as_p}}
+    <input type="submit" />
+  </form>
+  {%for vote in votes%}
+  {{vote.name}}
+  {{vote.vote}}
+  <br>
+  {%endfor%}
+</html>

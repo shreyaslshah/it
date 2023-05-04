@@ -1,0 +1,51 @@
+<html>
+<head>
+	<style>
+        
+    </style>
+    <script src="/home/student/Desktop/jquery-3.6.3.min.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$("button").click(function(){
+    			var first = $(".first").val();
+    			var second = $(".second").val();
+    			var selected = $("select").children("option:selected").val();
+    			console.log(selected, first, second)
+    			var ans = 0;
+    			if(selected==='+'){
+    				ans = parseInt(first) + parseInt(second);
+    			}
+    			else if(selected==='-'){
+    				ans = parseInt(first) - parseInt(second);
+    			}
+    			else if(selected==='*'){
+    				ans = parseInt(first) * parseInt(second);
+    			}
+    			else if(selected==='/'){
+    				ans = parseInt(first) / parseInt(second);    			}
+    			console.log(ans)
+    			$(".ans").html(ans)
+    		})
+    	})
+    </script>
+</head>
+<body>
+	<label>first num</label>
+	<input type="num" name="first-num" class="first">
+	<br>
+	<label>second num</label>
+	<input type="num" name="second-num" class="second">
+	<br>
+	<select id="op" name="operations">
+        <option value="+" selected>+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <br>
+    <button>calculate</button>
+    <br>
+    <p>answer:</p>
+    <p class="ans"></p>
+</body>
+</html>
